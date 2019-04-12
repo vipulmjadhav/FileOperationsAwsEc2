@@ -1,0 +1,47 @@
+--------------------------------------------
+|File operations on Aws EC2 instance..      |
+--------------------------------------------
+
+DESCRIPTION:
+	projects runs on aws ec2 instance only. 
+	aws instance has htdocs folder in xampp which is localhost to run from	
+	all the file operations have htdocs as a root folder from which all the operations are operated.
+	
+STEP 1 :
+	create a aws ec2 instance and install xampp on it
+		follow -> https://www.9lessons.info/2015/12/amazon-ec2-setup-with-ubuntu-and-xampp.html
+
+STEP 2 :
+	install xampp on local machine in order to run the project on local machine.
+
+STEP 3 :
+	project structure:
+		services provided to user:
+			LIST FILES
+			READ FILE DATA
+			WRITE INTO FILE
+			CREATE NEW FILES
+			DELETE EXISTING FILES
+STEP 4:
+	login.php
+		->contains the login form through which existing users can access the file operations based on 
+	permissions provided to them.After taking login details from the user the control gets tranferred to check.php
+	
+	check.php
+		->It takes the user and pass from the login.php file
+		  It includes access_control.php for getting the key from database table to grant the permissions.
+	
+	access_control.php
+		->It checks the user and password from the database and then key (rwx933,rw133,r233)
+		->accordingly transfer the control to the n2.php ,n3.php , n4.php
+	
+	n2.php
+		->It contains all the functionalities such as read,write,list,create,delete the files
+		->inside each functionality the control tranfered to the read.php , write etc...
+
+	n3.php
+		->It contains the read write access only
+	
+	n4.php
+		->It containd read access only
+	
